@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Log DB Control"
+  short_description: "Codex診断ログDBの書き込みを安全に確認・制御"
+  default_prompt: "Use $codex-log-db-control to inspect or control Codex local diagnostic log database writes safely."
