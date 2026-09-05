@@ -1,6 +1,6 @@
 ---
 name: codex-log-db-control
-description: Inspect and control writes to Codex's local `logs_2.sqlite` diagnostic databases, including the normal Codex home and Orca runtime home. Use when investigating Codex SSD write amplification, unexplained SQLite/WAL growth, `logs_2.sqlite` churn, disabling or restoring local diagnostic-log inserts with a reversible SQLite trigger, compacting the database, or rechecking the workaround after a Codex or Orca update.
+description: "Inspect Codex/Orca logs_2.sqlite write churn or apply and verify the requested reversible logging workaround."
 ---
 
 # Codex Log DB Control

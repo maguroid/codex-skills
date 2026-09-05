@@ -1,7 +1,6 @@
 ---
 name: agent-fork
-description: >-
-  Manual-only Codex workflow for forking the current conversation into a background side agent with `spawn_agent` and `fork_turns: "all"`, running one bounded directive while the main agent can continue, and returning the final result. Use only when the user explicitly invokes `$agent-fork`, `/agent-fork`, or names the agent-fork skill; never trigger implicitly for ordinary delegation, parallel work, review, or research requests.
+description: "Fork the current Codex context into a side agent only on explicit $agent-fork, /agent-fork, or named invocation; not ordinary delegation."
 ---
 
 # Agent Fork

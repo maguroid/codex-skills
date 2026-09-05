@@ -1,6 +1,6 @@
 ---
 name: claude-delegate
-description: Delegate a bounded task from Codex to Claude Code through headless `claude -p`, then inspect and synthesize the result. Use when the user asks Codex to ask, consult, delegate to, or get a second opinion from Claude, Claude Code, Fable, Opus, or Sonnet (for example, "Claudeに聞いて", "Fableにも相談して", "Opusでレビューして", "claude -pで任せて"). Supports isolated advice, repository-aware read-only work, and explicitly authorized edits; includes model selection, PTY execution, authentication diagnosis, and tmux fallback.
+description: "Ask Claude Code, Fable, Opus, or Sonnet for a bounded task or second opinion when the user requests it; inspect the result."
 ---
 
 # Claude Delegate
@@ -60,14 +60,16 @@ Use a compact handoff such as:
 目的: ...
 背景: ...
 成果物: ...
-制約: ...
+完了条件: ...（必要な検証・修正を含む）
+制約・承認が必要な操作: ...
 
 結論、根拠、未確認事項を簡潔に返してください。
 ```
 
 For `isolated`, also say that tools, external lookup, and repository inspection are unavailable and that Claude must answer from the supplied context. This prevents a tool-disabled run from spending its only turn attempting external work.
 
-For repository work, include the exact scope and acceptance checks. Do not paste large files when Claude can read them from the selected working directory.
+For repository work, include the exact scope and acceptance checks. Complete the authorized
+implementation, checks, and in-scope fixes before returning; do not stop only because a first draft exists. Do not paste large files when Claude can read them from the selected working directory.
 
 Only pass `--allow-redelegation` to the wrapper when the user explicitly requests or approves nested delegation. Even then, constrain what may be delegated and keep the primary Claude run accountable for the final result.
 
